@@ -1,0 +1,32 @@
+<!--miniprogram/pages/card/anonymity/anonymity_card.wxml-->
+<view class='container'>
+    <!-- 基本信息 -->
+    <view class='info'>
+        <image class='profile' src='/images/masks/mask1.png' mode='widthFix'></image>
+        <view class='info-detail'>
+            <view class='name'>Chauncy</view>
+            <view class='motto'>#Java #Web #小程序 #UI设计</view>
+        </view>
+        <view class='icons'>
+            <image src='/images/icons/more_icon2.png' mode='widthFix'></image>
+        </view>
+    </view>
+
+    <!-- 其他信息 -->
+    <view class='remark item'>
+        <view class='value'>逗比</view>
+        <view class='name'>备注</view>
+    </view>
+    <view class='intimacy item'>
+        <view class='value'>44</view>
+        <view class='name'>亲密度
+            <image src='/images/icons/like_icon.png' mode='widthFix'></image>
+        </view>
+    </view>
+
+    <!-- 底部 -->
+    <view class='bottom'>
+        <view class='add'>加为好友</view>
+        <view class='chat'>发起聊天</view>
+    </view>
+</view>

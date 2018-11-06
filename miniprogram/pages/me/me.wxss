@@ -1,0 +1,181 @@
+/* miniprogram/pages/me/me.wxss */
+.container{
+    width: 100%;
+}
+
+/* 基本信息 */
+.info{
+    height: 240rpx;
+    padding:30rpx 0 0 66rpx;
+    position: relative;
+    box-sizing: border-box;
+}
+.profile{
+    width:180rpx;
+    height: 180rpx;
+    vertical-align: middle;
+    border-radius: 10rpx;
+}
+.info-detail{
+    display: inline-block;
+    height: 180rpx;
+    width: 450rpx;
+    margin-left: 28rpx;
+    vertical-align: middle;
+}
+.name{
+    font-size: 48rxp;
+    color: #000;
+    max-width: 300rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.id{
+    margin-top: 10rpx;
+    font-size: 28rpx;
+    color: rgba(0, 0, 0, 0.7);
+    max-width: 300rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.motto{
+    margin-top: 20rpx;
+    font-size: 18rpx;
+    color: rgba(0, 0, 0, 0.5);
+    max-width: 500rpx;
+    max-height: 50rpx;
+    overflow: hidden;
+}
+.icons{
+    position: absolute;
+    top: 42rpx;
+    right: 20rpx;
+}
+.icons image{
+    width: 48rpx;
+    height: 48rpx;
+    margin-left: 40rpx;
+}
+
+/* 面具 */
+.mask{
+    height: 240rpx;
+    position: relative;
+    box-sizing: border-box;
+    padding: 4rpx 0 0 66rpx;
+    margin: 10rpx 0;
+}
+.cur-mask{
+    width: 160rpx;
+    height: 160rpx;
+}
+.mask-tip{
+    width: 160rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #4E7C7F;
+    margin-top: 30rpx;
+}
+.masks{
+    position: absolute;
+    top: 40rpx;
+    right: 36rpx;
+}
+.line{
+    height: 80rpx;
+}
+.line .img{
+    width: 80rpx;
+    height: 80rpx;
+}
+.more_mask{
+    width: 200rpx;
+}
+.line image{
+    margin-left: 40rpx;
+}
+.line2{
+    margin-top: 40rpx;
+}
+
+/* 假名 */
+.fackName{
+    box-sizing: border-box;
+    height: 240rpx;
+    padding: 28rpx 0 0 66rpx;
+    position: relative;
+}
+.cur-fackName{
+    width: 296rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #FFFFFF;
+    background-color: #89BAFF;
+    border-radius: 30rpx;
+}
+.fackName-tip{
+    width: 296rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 34rpx;
+}
+.fackNames{
+    position: absolute;
+    top: 28rpx;
+    right: 16rpx;
+}
+.column{
+    width: 130rpx;
+    display: inline-block;
+    margin-right: 20rpx;
+}
+.selectable{
+    width: 130rpx;
+    height: 44rpx;
+    margin-bottom: 20rpx;
+    background-color: rgba(137, 186, 255, 0.5);
+    border-radius: 20rpx;
+    font-size: 18rpx;
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 44rpx;
+    text-align: center;
+}
+.more_fackname{
+    width: 44rpx;
+    height: 44rpx;
+    vertical-align: top;
+}
+
+/* 我的动态 */
+.recently{
+    margin: 10rpx 66rpx;
+    height: 180rpx;
+    border: 1rpx solid #CFE3FF;
+    border-radius: 20rpx;
+    background-color: #EFF9FF;
+    box-sizing: border-box;
+}
+.recently text{
+    display: inline-block;
+    width: 64rpx;
+    height: 88rpx;
+    font-size: 32rpx;
+    color: #424242;
+    white-space: pre-wrap;
+    /* overflow: hidden; */
+    margin-left: 40rpx;
+    margin-top: 30rpx;
+    vertical-align: middle;
+}
+.recently image{
+    width: 120rpx;
+    height: 120rpx;
+    margin-left: 38rpx;
+    margin-top: 30rpx;
+    vertical-align: middle;
+}

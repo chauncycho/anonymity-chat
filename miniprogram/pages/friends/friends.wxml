@@ -1,0 +1,43 @@
+<import src='../../template/template.wxml'></import>
+
+<view class='container'>
+    <view class='search'>
+        <image src='/images/icons/search_icon.png' mode='widthFix'></image>
+    </view>
+    <!-- 我的好友 -->
+    <view class='my-friends'>
+        <view class='list-btn' style='{{myFriendsStyle}}' catchtap='onMyFriendsTap'>
+            <view class='title'>
+                <image src='{{myFriendsTriange}}' mode='widthFix'></image>
+                <text>我的好友</text>
+            </view>
+        </view>
+        <view class='list' style='display:{{myFriendsListDisplay}}'>
+            <template is='friend' wx:for='{{myFriends}}' wx:for-item='item' wx:key='item' data='{{item}}'></template>
+        </view>
+    </view>
+    <!-- 我的聊天室 -->
+    <view class='my-chatting-room'>
+        <view class='list-btn' style='{{myChattingRoomStyle}}' catchtap='onMyChattingRoomTap'>
+            <view class='title'>
+                <image src='{{myChattingRoomTriange}}' mode='widthFix'></image>
+                <text>我的聊天室</text>
+            </view>
+        </view>
+        <view class='list' style='display:{{myChattingRoomListDisplay}}'>
+            <template is='friend' wx:for='{{myChattingRoom}}' wx:for-item='item' wx:key='item' data='{{item}}'></template>
+        </view>
+    </view>
+    <!-- 匿名好友 -->
+    <view class='anonymity-friends'>
+        <view class='list-btn' style='{{anonymityFriendsStyle}}' catchtap='onAnonymityFriendsTap'>
+            <view class='title'>
+                <image src='{{anonymityFriendsTriange}}' mode='widthFix'></image>
+                <text>匿名好友</text>
+            </view>
+        </view>
+        <view class='list' style='display:{{anonymityFriendsListDisplay}}'>
+            <template is='anonymity-friends' wx:for='{{anonymityFriends}}' wx:for-item='item' wx:key='item' data='{{item}}'></template>
+        </view>
+    </view>
+</view>

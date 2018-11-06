@@ -1,0 +1,55 @@
+/* miniprogram/pages/modify/modify.wxss */
+
+.container{
+    height: 100%;
+    overflow-y: scroll;
+    position: relative;
+    padding-bottom: 200rpx;
+}
+.item{
+    margin: 30rpx 66rpx;
+    height: 74rpx;
+    background-color: #EFF9FF;
+    border: 1rpx solid #CFE3FF;
+    box-sizing: border-box;
+    border-radius: 20rpx;
+    line-height: 74rpx;
+    position: relative;
+}
+.item .name{
+    font-size: 32rpx;
+    color: #424242;
+    margin-left: 40rpx;
+}
+.item .value{
+    font-size: 32rpx;
+    color: #424242;
+    position: absolute;
+    right: 40rpx;
+    max-width: 400rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.submit{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.submit button{
+    height: 120rpx;
+    line-height: 120rpx;
+    width: 618rpx;
+    background-color: #89BAFF;
+    border-radius: 30rpx;
+    box-shadow: 4rpx 8rpx 12rpx #89baff80;
+    margin: 0 auto 50rpx auto;
+    color: #fff;
+    font-size: 48rpx;
+}
+
+.submit button:active{
+    box-shadow: 2rpx 4rpx 4rpx #89BAFF80;
+}

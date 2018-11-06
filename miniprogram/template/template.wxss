@@ -1,0 +1,14 @@
+/* miniprogram/template/bottom_tab_template.wxss */
+.bottom-tab{
+    width: 750rpx;
+    height: 120rpx;
+    display: block;
+}
+.bottom-tab view{
+    width: 25%;
+    display: inline-block;
+    height: 60rpx;
+}
+.bottom-tab view image{
+    width: 100%;
+}

@@ -1,0 +1,124 @@
+/* miniprogram/pages/messages/messages.wxss */
+
+.container {
+    display: block;
+    width: 100%;
+}
+/* 搜索 */
+.search {
+    margin: 10rpx 36rpx;
+    box-sizing: border-box;
+    line-height: 60rpx;
+    height: 60rpx;
+    border-radius: 28rpx;
+    text-align: center;
+    border: 1rpx solid #979797;
+}
+
+.search image {
+    width: 100rpx;
+    margin-top: 8rpx;
+}
+
+/* 快速匿名匹配 */
+.matching{
+    width: 100%;
+    height: 80rpx;
+    margin-top: 30rpx;
+}
+.matching-border{
+    margin: 4rpx 180rpx;
+    background-color: #89BAFF;
+    box-sizing: border-box;
+    text-align: center;
+    height: 72rpx;
+    border-radius: 28rpx;
+}
+.matching-text{
+    color: #fff;
+    line-height: 72rpx;
+    font-size: 34rpx;
+    
+}
+/* 消息 */
+.person{
+    width: 100%;
+    height: 120rpx;
+    display: block;
+    position: relative;
+}
+.right{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    height: 120rpx;
+    /* width: 80rpx; */
+}
+.time{
+    display: block;
+    margin: 16rpx 20rpx 6rpx 0;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    font-weight: 300;
+    width: 80rpx;
+    text-align: center;
+}
+.count{
+    margin-right: 20rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    border-radius: 20rpx;
+    background-color: #89BAFF;
+    display: block;
+    text-align: center;
+}
+.count-value{
+    font-size: 20rpx;
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+.profile{
+    width: 80rpx;
+    height: 80rpx;
+    margin: 20rpx 20rpx 20rpx 36rpx;
+    vertical-align: middle;
+}
+.name-and-message{
+    display: inline-block;
+    height: 80rpx;
+    width: 300rpx;
+    position: relative;
+    vertical-align: middle;
+}
+.name{
+    line-height: 40rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    color: #000;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 300rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.message{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 28rpx;
+    font-size: 20rpx;
+    color: #000;
+    opacity: 0.5;
+    width: auto;
+    max-width: 300rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+

@@ -1,0 +1,63 @@
+<!--miniprogram/pages/me/me.wxml-->
+
+<view class='container'>
+    <!-- 基本信息 -->
+    <view class='info'>
+        <image class='profile' src='{{userdata.profilePath}}' mode='widthFix'></image>
+        <view class='info-detail'>
+            <view class='name'>{{userdata.name}}</view>
+            <view class='id'>{{userdata.id}}</view>
+            <view class='motto'>{{userdata.motto}}</view>
+        </view>
+        <view class='icons'>
+            <image src='/images/icons/code_icon.png' mode='widthFix'></image>
+            <image src='/images/icons/setting_icon.png' mode='widthFix' bindtap='onModifyTap'></image>
+        </view>
+    </view>
+
+    <!-- 选择面具 -->
+    <view class='mask'>
+        <image class='cur-mask' src='{{userdata.maskPath}}' mode='widthFix'></image>
+        <view class='mask-tip'>你的面具</view>
+        <view class='masks'>
+            <view class='line line1'>
+                <image class='img' src='{{masks[0]}}' data-mask-index='0' mode='widthFix' bindtap='onMaskTap'></image>
+                <image class='img' src='{{masks[1]}}' data-mask-index='1' mode='widthFix' bindtap='onMaskTap'></image>
+                <image class='more_mask' src='/images/masks/more_mask.png' mode='widthFix'></image>
+            </view>
+            <view class='line line2'>
+                <image class='img' src='{{masks[2]}}' data-mask-index='2' mode='widthFix' bindtap='onMaskTap'></image>
+                <image class='img' src='{{masks[3]}}' data-mask-index='3' mode='widthFix' bindtap='onMaskTap'></image>
+                <image class='img' src='{{masks[4]}}' data-mask-index='4' mode='widthFix' bindtap='onMaskTap'></image>
+                <image class='img' src='{{masks[5]}}' data-mask-index='5' mode='widthFix' bindtap='onMaskTap'></image>
+            </view>
+        </view>
+    </view>
+
+    <!-- 选择假名 -->
+    <view class='fackName'>
+        <view class='cur-fackName'>{{userdata.fackName}}</view>
+        <view class='fackName-tip'>你的假名</view>
+        <view class='fackNames'>
+            <view class='column'>
+                <view class='selectable' data-fack-name-index='0' bindtap='onFackNameTap'>{{fackNames[0]}}</view>
+                <view class='selectable' data-fack-name-index='1' bindtap='onFackNameTap'>{{fackNames[1]}}</view>
+                <view class='selectable' data-fack-name-index='2' bindtap='onFackNameTap'>{{fackNames[2]}}</view>
+            </view>
+            <view class='column'>
+                <view class='selectable' data-fack-name-index='3' bindtap='onFackNameTap'>{{fackNames[3]}}</view>
+                <view class='selectable' data-fack-name-index='4' bindtap='onFackNameTap'>{{fackNames[4]}}</view>
+                <view class='selectable' data-fack-name-index='5' bindtap='onFackNameTap'>{{fackNames[5]}}</view>
+            </view>
+            <image class='more_fackname' src='/images/icons/more_fack_name_icon.png' mode='widthFix'></image>
+        </view>
+    </view>
+
+    <!-- 最近动态 -->
+    <view class='recently'>
+        <text>我的动态</text>
+        <image src='/images/other/recent1.jpg' mode='widthFix'></image>
+        <image src='/images/other/recent2.jpg' mode='widthFix'></image>
+        <image src='/images/other/recent3.jpg' mode='widthFix'></image>
+    </view>
+</view>

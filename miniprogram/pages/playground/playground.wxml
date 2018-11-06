@@ -1,0 +1,14 @@
+<!--miniprogram/pages/playground/playground.wxml-->
+<import src='../../template/template.wxml'></import>
+<view class='container'>
+    <!-- 头部导航 -->
+    <view class='head-bar'>
+        <view class='live' bindtap='onLiveTap' style='{{liveStyle}}'>动态</view>
+        <view class='discover' bindtap='onDiscoverTap' style='{{discoverStyle}}'>发现
+        </view>
+    </view>
+
+    <!-- 内容模板 -->
+    <template wx:if='{{currentTab == "live"}}' is='live-content' data='{{lives}}'></template>
+    <template wx:if='{{currentTab == "discover"}}' is='discover-content' data='{{discover}}'></template>
+</view>

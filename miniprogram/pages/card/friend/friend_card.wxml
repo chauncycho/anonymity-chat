@@ -1,0 +1,49 @@
+<!--miniprogram/pages/card/friend/friend_card.wxml-->
+<view class='container'>
+    <!-- 基本信息 -->
+    <view class='info'>
+        <image class='profile' src='/images/profiles/profile1.png' mode='widthFix'></image>
+        <view class='info-detail'>
+            <view class='name'>Chauncy</view>
+            <view class='id'>332501080</view>
+            <view class='motto'>#Java #Web #小程序 #UI设计</view>
+        </view>
+        <view class='icons'>
+            <image src='/images/icons/more_icon2.png' mode='widthFix'></image>
+        </view>
+    </view>
+
+    <!-- 其他信息 -->
+    <view class='remark item'>
+        <view class='value'>逗比</view>
+        <view class='name'>备注</view>
+    </view>
+    <view class='age item'>
+        <view class='value'>20岁</view>
+        <view class='name'>年龄</view>
+    </view>
+    <view class='star item'>
+        <view class='value'>狮子座</view>
+        <view class='name'>星座</view>
+    </view>
+    <view class='intimacy item'>
+        <view class='value'>230</view>
+        <view class='name'>亲密度
+            <image src='/images/icons/like_icon.png' mode='widthFix'></image>
+        </view>
+    </view>
+
+    <!-- 最近动态 -->
+    <view class='recently'>
+        <text>我的动态</text>
+        <image src='/images/other/recent1.jpg' mode='widthFix'></image>
+        <image src='/images/other/recent2.jpg' mode='widthFix'></image>
+        <image src='/images/other/recent3.jpg' mode='widthFix'></image>
+    </view>
+
+    <!-- 底部 -->
+    <view class='bottom'>
+        <view class='delete'>删除好友</view>
+        <view class='chat'>发起聊天</view>
+    </view>
+</view>

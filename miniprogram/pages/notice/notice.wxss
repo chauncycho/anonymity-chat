@@ -1,0 +1,33 @@
+/* miniprogram/pages/notice/notice.wxss */
+
+.container{
+    height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+}
+.item{
+    margin: 20rpx 20rpx;
+    position: relative;
+    /* border: 1rpx solid #CFE3FF; */
+    border-radius: 20rpx;
+    background-color: #EFF9FF;
+    height: 80rpx;
+    line-height: 80rpx;
+    box-shadow: 0rpx 4rpx 4rpx #CFE3FF;
+}
+.title{
+    margin-left: 20rpx;
+    font-size: 32rpx;
+    color: #424242;
+    display: inline-block;
+    max-width: 560rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.time{
+    position: absolute;
+    right: 17rpx;
+    color: #777C80;
+    font-size: 28rpx;
+}

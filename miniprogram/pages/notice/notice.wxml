@@ -1,0 +1,23 @@
+<!--miniprogram/pages/notice/notice.wxml-->
+<view class='container'>
+    <view class='item'>
+        <view class='time'>12:45</view>
+        <view class='title'>您有一条未读消息！</view>
+    </view>
+    <view class='item'>
+        <view class='time'>12:15</view>
+        <view class='title'>科比拒绝了您的好友请求！</view>
+    </view>
+     <view class='item'>
+        <view class='time'>12:10</view>
+        <view class='title'>科比拒绝了您的好友请求！</view>
+    </view>
+     <view class='item'>
+        <view class='time'>12:00</view>
+        <view class='title'>科比拒绝了您的好友请求！</view>
+    </view>
+     <view class='item'>
+        <view class='time'>12:00</view>
+        <view class='title'>科比拒绝了您的好友请求！</view>
+    </view>
+</view>

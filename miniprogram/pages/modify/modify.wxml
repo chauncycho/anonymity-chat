@@ -1,0 +1,51 @@
+<!--miniprogram/pages/modify/modify.wxml-->
+<view class='container'>
+    <view class='name-modify item'>
+        <view class='value'>Chauncy</view>
+        <view class='name'>用户名</view>
+    </view>
+    <view class='motto-modify item'>
+        <view class='value'>( ⊙ o ⊙ )啊！</view>
+        <view class='name'>个人签名</view>
+    </view>
+    <view class='gender-modify item'>
+        <view class='value'>男</view>
+        <view class='name'>性别</view>
+    </view>
+    <view class='birthday-modify item'>
+        <view class='value'>1998年8月19日</view>
+        <view class='name'>生日</view>
+    </view>
+    <view class='age-modify item'>
+        <view class='value'>20岁</view>
+        <view class='name'>年龄</view>
+    </view>
+    <view class='star-modify item'>
+        <view class='value'>狮子座</view>
+        <view class='name'>星座</view>
+    </view>
+    <view class='email-modify item'>
+        <view class='value'>332501080@qq.com</view>
+        <view class='name'>邮箱</view>
+    </view>
+    <view class='profession-modify item'>
+        <view class='value'>学生</view>
+        <view class='name'>职业</view>
+    </view>
+    <view class='conpany-modify item'>
+        <view class='value'></view>
+        <view class='name'>公司</view>
+    </view>
+    <view class='school-modify item'>
+        <view class='value'>北京信息科技大学</view>
+        <view class='name'>学校</view>
+    </view>
+    <view class='position-modify item'>
+        <view class='value'>北京</view>
+        <view class='name'>地区</view>
+    </view>
+
+    <view class='submit'>
+        <button bindtap='onSubmitTap'>确认修改</button>
+    </view>
+</view>

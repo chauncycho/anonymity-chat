@@ -1,0 +1,101 @@
+.container {
+    display: block;
+    width: 100%;
+}
+
+/* 搜索 */
+
+.search {
+    margin: 10rpx 36rpx;
+    box-sizing: border-box;
+    line-height: 60rpx;
+    height: 60rpx;
+    border-radius: 28rpx;
+    text-align: center;
+    border: 1rpx solid #979797;
+}
+
+.search image {
+    width: 100rpx;
+    margin-top: 8rpx;
+}
+
+/* 下拉标 */
+
+.list-btn {
+    width: 100%;
+    height: 80rpx;
+    /* box-shadow: 0 6rpx 4rpx rgba(0, 0, 0, 0.04); */
+}
+
+.title {
+    height: 80rpx;
+}
+
+.title image {
+    margin-left: 36rpx;
+    margin-top: 30rpx;
+    width: 20rpx;
+    height: 20rpx;
+}
+
+.title text {
+    font-size: 28rpx;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 300;
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+}
+
+/* 下拉列表、人物 */
+
+.list {
+    width: 100%;
+}
+
+.person {
+    width: 100%;
+    height: 120rpx;
+}
+
+.person image {
+    height: 80rpx;
+    width: 80rpx;
+    margin-top: 20rpx;
+    margin-left: 36rpx;
+}
+
+.info {
+    height: 80rpx;
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+    position: relative;
+    display: inline-block;
+    width: 320rpx;
+}
+
+.name {
+    height: 40rpx;
+    font-size: 28rpx;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 300rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.motto {
+    height: 28rpx;
+    font-size: 20rpx;
+    color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 300rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

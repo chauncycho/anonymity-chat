@@ -1,0 +1,30 @@
+<!--miniprogram/pages/chat/chat.wxml-->
+<import src='../../template/template.wxml'></import>
+<view class='container'>
+    <!-- 头部 -->
+    <view class='head'>
+        <image src='{{profilePath}}' mode='widthFix'></image>
+        <text class='name'>{{name}}</text>
+        <view class='more-info'><text>more</text></view>
+    </view>
+
+    <!-- 聊天内容 -->
+    <view class='content' id='content'>
+        <template is='message' data='{{messages}}'></template>
+    </view>
+
+    <!-- 底部 -->
+    <view class='bottom'>
+        <view class='icons'>
+            <image class='emojy_icon' src='/images/icons/emojy_icon.png' mode='widthFix'></image>
+            <image src='/images/icons/image_icon.png' mode='widthFix'></image>
+            <image src='/images/icons/play_icon.png' mode='widthFix'></image>
+            <image src='/images/icons/inspiration_icon.png' mode='widthFix'></image>
+            <image class='more_icon' src='/images/icons/more_icon.png' mode='widthFix'></image>
+        </view>
+        <view class='input'>
+            <input value='{{input}}' bindinput='onInput'></input>
+            <view class='send' bindtap='onSend'>发送</view>
+        </view>
+    </view>
+</view>
