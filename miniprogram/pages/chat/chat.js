@@ -18,8 +18,9 @@ Page({
     onLoad: function(options) {
         that = this;
         currentId = getApp().globalData.userdata.id;//自己id
-        targetId = options.id;//目标id
-        that.initMessage();//初始化消息队列
+        that.test();
+        // targetId = options.id;//目标id
+        // that.initMessage();//初始化消息队列
         // console.log(getApp().globalData)
     },
 
@@ -158,6 +159,15 @@ Page({
                 return listMessages[i];
             }
         }
+    },
+    //聊天测试
+    test:function(){
+        that.setData({
+            profilePath: "/images/masks/mask1.png",
+            name: "聊天测试",
+        })
+    },
+    onSendTest:function(e){
+        console.log(e)
     }
-    
 })

@@ -24,7 +24,7 @@
         </view>
         <view class='input'>
             <input value='{{input}}' bindinput='onInput'></input>
-            <view class='send' bindtap='onSend'>发送</view>
+            <view class='send' bindtap='onSendTest'>发送</view>
         </view>
     </view>
 </view>
