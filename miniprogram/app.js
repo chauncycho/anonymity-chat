@@ -6,7 +6,7 @@ App({
     onLaunch: function() {
         that = this;
         that.login();//登录
-        that.userInit();//初始化user
+        // that.userInit();//初始化user
     },
     sendRequest: function(code) {
         //   发送服务器请求
@@ -24,7 +24,7 @@ App({
                 //   成功
                 console.log(res);
                 var userdata = res.data;
-
+                console.log("detail测试:"+userdata.detail)
                 that.save("userdata", userdata)
                 that.globalData = {
                     userdata:userdata

@@ -17,7 +17,7 @@ Page({
     onLoad: function(options) {
         that = this;
         // that.initPerson();
-        that.loadMessageList();
+        // that.loadMessageList();
     },
 
     /**

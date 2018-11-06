@@ -130,10 +130,25 @@ Page({
         // var friends = require('../../localdb/friendsdb.js').friends;
         // console.log(friends)
         console.log(getApp())
+
+        var friend = new Array();
+        var anonymity = new Array();
+        var room = new Array();
+        var list = getApp().globalData.userdata.friends;
+        for(var i = 0 ; i < list.length ; i ++){
+            if(list[i].type == "friend"){
+                friend.push(list[i]);
+            }else if(list[i].type == "anonymity"){
+                anonymity.push(list[i]);
+            }else if(list[i].type == "room"){
+                room.push(list[i]);
+            }
+        }
+
         that.setData({
-            myFriends: getApp().globalData.userdata.friends,
-            anonymityFriends: getApp().globalData.userdata.anonymityFriends,
-            myChattingRoom: getApp().globalData.userdata.chattingRoom
+            myFriends: friend,
+            anonymityFriends: anonymity,
+            myChattingRoom: room
         })
     },
     onFriendTap: function() {
