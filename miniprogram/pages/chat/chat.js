@@ -10,6 +10,7 @@ Page({
      */
     data: {
         input: "",
+        currentId: "000000005"
     },
 
     /**
@@ -23,6 +24,7 @@ Page({
         that.initMessageTest(); //初始化消息队列
         that.initUserTest();
         // console.log(getApp().globalData)
+        console.log(that.data)
     },
 
     /**
@@ -209,47 +211,59 @@ Page({
     },
     initMessageTest: function() {
         //需修改
-        var messagedb = {
-            targetId: "000000006",
-            lastTime: "22:00",
-            message: [{
-                currentId: "000000005",
-                id: "000000005",
-                content: "出不出去吃饭",
-                time: ""
-            }, {
-                currentId: "000000005",
-                id: "000000006",
-                content: "不去",
-                time: ""
-            }, {
-                currentId: "000000005",
-                id: "000000005",
-                content: "为什么",
-                time: ""
-            }, {
-                currentId: "000000005",
-                id: "000000006",
-                content: "冷",
-                time: ""
-            }]
+        // var messagedb = {
+        //     targetId: "000000008",
+        //     lastTime: "22:00",
+        //     message: [{
+        //         currentId: "000000005",
+        //         id: "000000008",
+        //         content: "出不出去吃饭",
+        //         time: ""
+        //     }, {
+        //         currentId: "000000005",
+        //         id: "000000008",
+        //         content: "不去",
+        //         time: ""
+        //     }, {
+        //         currentId: "000000005",
+        //         id: "000000008",
+        //         content: "为什么",
+        //         time: ""
+        //     }, {
+        //         currentId: "000000005",
+        //         id: "000000008",
+        //         content: "冷",
+        //         time: ""
+        //     }]
+        // }
+        
+        var messageGlobal = getApp().globalData.userdata.messages;
+        var preMessage;
+        for (var i = 0; i < messageGlobal.length; i++) {
+            if (messageGlobal[i].targetId == targetId) {
+                preMessage = messageGlobal[i];
+                break;
+            }
         }
-
+        for (var i = 0; i < preMessage.messages.length; i++) {
+            preMessage.messages[i].currentId = currentId;
+        }
         that.setData({
-            messages: messagedb
+            messages: preMessage
         })
+        console.log(that.data.messages);
     },
-    initUserTest:function(){
-        var userdata  = getApp().globalData.userdata;
+    initUserTest: function() {
+        var userdata = getApp().globalData.userdata;
         var user;
-        for (var i = 0 ; i < userdata.friends.length ; i ++){
-            if(userdata.friends[i].id == targetId){
+        for (var i = 0; i < userdata.friends.length; i++) {
+            if (userdata.friends[i].id == targetId) {
                 user = userdata.friends[i];
                 break;
             }
         }
         that.setData({
-            user:user
+            user: user,
         })
     }
 })
