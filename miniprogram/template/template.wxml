@@ -94,10 +94,10 @@
 <!-- 聊天消息 -->
 <template name='message'>
     <view wx:for='{{messages.messages}}' wx:for-item='item' wx:key='item'>
-        <view wx:if='{{item.user_id != item.currentId}}' class='line message-left'>
+        <view wx:if='{{item.user_id == messages.targetId}}' class='line message-left'>
             <view class='message'>{{item.value}}</view>
         </view>
-        <view wx:if='{{item.user_id == item.currentId}}' class='line message-right'>
+        <view wx:if='{{item.user_id != messages.targetId}}' class='line message-right'>
             <view class='message'>{{item.value}}</view>
         </view>
     </view>

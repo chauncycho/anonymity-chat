@@ -10,7 +10,6 @@ Page({
      */
     data: {
         input: "",
-        currentId: "000000005"
     },
 
     /**
@@ -115,20 +114,37 @@ Page({
         })
 
         // 获得消息内容 
+        // console.log()
         var messages = that.data.messages;
-
+        // var userdataGlobal = getApp().globalData.userdata
         // 更新消息数据
-        messages.message.push({
-            id: 1,
-            content: input,
-            currentId: currentId
+        messages.messages.push({
+            user_id: currentId,
+            target_id: targetId,
+            type:"text",
+            value:input,
+            time:new Date()
         })
 
         // 同步到data
         that.setData({
             messages: messages
         });
-
+        // 同步到全局
+        var userdata = getApp().globalData.userdata;
+        console.log(userdata);
+        for(var i = 0 ; i < userdata.messages.length; i ++){
+            if (userdata.messages[i].targetId == targetId){
+                userdata.messages[i].messages.push({
+                    user_id: currentId,
+                    target_id: targetId,
+                    type: "text",
+                    value: input,
+                    time: new Date()
+                })
+            }
+        }
+        console.log(getApp().globalData.userdata)
         // 滚动消息到底部
         that.scrollToBottom();
 
@@ -136,6 +152,20 @@ Page({
         input = ""
 
         // 发送到服务器
+        wx:wx.sendSocketMessage({
+            data: {
+                user_id: currentId,
+                target_id: targetId,
+                type: "text",
+                value: input,
+                time: new Date()
+            },
+            success: function(res) {
+                console.log("消息发送成功")
+            },
+            fail: function(res) {},
+            complete: function(res) {},
+        })
     },
     scrollToBottom: function() {
         wx: wx.createSelectorQuery().select("#content").boundingClientRect(function(rect) {
@@ -172,71 +202,7 @@ Page({
             name: "聊天测试",
         })
     },
-    onSendTest: function(e) {
-        if (input == "") {
-            wx.showToast({
-                title: '消息不能为空喔！',
-                icon: 'none'
-            })
-            return;
-        }
-
-        // 清空消息框
-        that.setData({
-            input: ""
-        })
-
-        // 获得消息内容 
-        var messages = that.data.messages;
-
-        // 更新消息数据
-        messages.message.push({
-            id: "000000005",
-            content: input,
-            currentId: currentId
-        })
-
-        // 同步到data
-        that.setData({
-            messages: messages
-        });
-
-        // 滚动消息到底部
-        that.scrollToBottom();
-
-        // 清空消息
-        input = ""
-
-        // 发送到服务器
-    },
     initMessageTest: function() {
-        //需修改
-        // var messagedb = {
-        //     targetId: "000000008",
-        //     lastTime: "22:00",
-        //     message: [{
-        //         currentId: "000000005",
-        //         id: "000000008",
-        //         content: "出不出去吃饭",
-        //         time: ""
-        //     }, {
-        //         currentId: "000000005",
-        //         id: "000000008",
-        //         content: "不去",
-        //         time: ""
-        //     }, {
-        //         currentId: "000000005",
-        //         id: "000000008",
-        //         content: "为什么",
-        //         time: ""
-        //     }, {
-        //         currentId: "000000005",
-        //         id: "000000008",
-        //         content: "冷",
-        //         time: ""
-        //     }]
-        // }
-        
         var messageGlobal = getApp().globalData.userdata.messages;
         var preMessage;
         for (var i = 0; i < messageGlobal.length; i++) {
