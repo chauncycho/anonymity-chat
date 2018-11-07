@@ -3,8 +3,8 @@
 <view class='container'>
     <!-- 头部 -->
     <view class='head'>
-        <image src='{{profilePath}}' mode='widthFix'></image>
-        <text class='name'>{{name}}</text>
+        <image src='{{user.profile}}' mode='widthFix'></image>
+        <text class='name'>{{user.name}}</text>
         <view class='more-info'><text>more</text></view>
     </view>
 

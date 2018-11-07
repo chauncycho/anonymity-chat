@@ -81,5 +81,14 @@ Page({
         that.setData({
             user: user
         })
+    },
+    onChat: function (e) {
+        var id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/chat/chat?id=' + id,
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+        })
     }
 })

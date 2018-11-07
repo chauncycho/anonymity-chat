@@ -17,10 +17,11 @@ Page({
      */
     onLoad: function(options) {
         that = this;
-        currentId = getApp().globalData.userdata.id;//自己id
+        currentId = getApp().globalData.userdata.id; //自己id
         that.test();
-        // targetId = options.id;//目标id
-        // that.initMessage();//初始化消息队列
+        targetId = options.id; //目标id
+        that.initMessageTest(); //初始化消息队列
+        that.initUserTest();
         // console.log(getApp().globalData)
     },
 
@@ -72,23 +73,25 @@ Page({
     onShareAppMessage: function() {
 
     },
-    initMessage: function() {//初始化消息
-        var messagedb = require('../../localdb/messagedb.js').messagedb;//消息数据库
+    initMessage: function() { //初始化消息
+        // var messagedb = require('../../localdb/messagedb.js').messagedb;//消息数据库
 
-        var listMessage = getApp().globalData.userdata.messageListDetail;//用户信息列表
-        var targetUser = that.getUser(targetId,listMessage);//用户信息
-        var messages = that.getMessage(targetId, messagedb);
+        // var listMessage = getApp().globalData.userdata.messageListDetail;//用户信息列表
+        // var targetUser = that.getUser(targetId,listMessage);//用户信息
+        // var messages = that.getMessage(targetId, messagedb);
 
-        for(var i = 0 ; i < messages.message.length ; i ++){//把当前用户封装进消息
-            messages.message[i].currentId = currentId
-        }
+        // for(var i = 0 ; i < messages.message.length ; i ++){//把当前用户封装进消息
+        //     messages.message[i].currentId = currentId
+        // }
 
-        that.setData({
-            messages: messages,
-            profilePath:targetUser.profilePath,
-            name:targetUser.name,
-        })
-        console.log(that.data)
+        // that.setData({
+        //     messages: messages,
+        //     profilePath:targetUser.profilePath,
+        //     name:targetUser.name,
+        // })
+        // console.log(that.data)
+
+
         // 滚动到消息底部
         that.scrollToBottom();
     },
@@ -96,12 +99,12 @@ Page({
         input = e.detail.value;
     },
     onSend: function(e) {
-        if(input == ""){
+        if (input == "") {
             wx.showToast({
                 title: '消息不能为空喔！',
-                icon:'none'
+                icon: 'none'
             })
-            return ;
+            return;
         }
 
         // 清空消息框
@@ -143,31 +146,31 @@ Page({
     /**
      * 在所有Message中搜索两人的对话信息
      */
-    getMessage: function (id, messagedb) {
-        for (var i = 0; i < messagedb.length; i++) {//遍历messagedb
+    getMessage: function(id, messagedb) {
+        for (var i = 0; i < messagedb.length; i++) { //遍历messagedb
             var idList = messagedb[i].id;
-            for (var j = 0; j < idList.length; j++) {//判断idList是否包含该id
+            for (var j = 0; j < idList.length; j++) { //判断idList是否包含该id
                 if (idList[j] == id) {
                     return messagedb[i];
                 }
             }
         }
     },
-    getUser:function(id,listMessages){
-        for(var i = 0 ; i < listMessages.length ; i ++){
-            if (id == listMessages[i].id){
+    getUser: function(id, listMessages) {
+        for (var i = 0; i < listMessages.length; i++) {
+            if (id == listMessages[i].id) {
                 return listMessages[i];
             }
         }
     },
     //聊天测试
-    test:function(){
+    test: function() {
         that.setData({
             profilePath: "/images/masks/mask1.png",
             name: "聊天测试",
         })
     },
-    onSendTest:function(e){
+    onSendTest: function(e) {
         if (input == "") {
             wx.showToast({
                 title: '消息不能为空喔！',
@@ -204,26 +207,49 @@ Page({
 
         // 发送到服务器
     },
-    initMessageTest:function(){
+    initMessageTest: function() {
+        //需修改
         var messagedb = {
             targetId: "000000006",
             lastTime: "22:00",
             message: [{
+                currentId: "000000005",
                 id: "000000005",
-                content: "出不出去吃饭"
+                content: "出不出去吃饭",
+                time: ""
             }, {
+                currentId: "000000005",
                 id: "000000006",
-                content: "不去"
+                content: "不去",
+                time: ""
             }, {
+                currentId: "000000005",
                 id: "000000005",
-                content: "为什么"
+                content: "为什么",
+                time: ""
             }, {
+                currentId: "000000005",
                 id: "000000006",
-                content: "冷"
+                content: "冷",
+                time: ""
             }]
         }
+
         that.setData({
-            messages:messagedb
+            messages: messagedb
+        })
+    },
+    initUserTest:function(){
+        var userdata  = getApp().globalData.userdata;
+        var user;
+        for (var i = 0 ; i < userdata.friends.length ; i ++){
+            if(userdata.friends[i].id == targetId){
+                user = userdata.friends[i];
+                break;
+            }
+        }
+        that.setData({
+            user:user
         })
     }
 })
