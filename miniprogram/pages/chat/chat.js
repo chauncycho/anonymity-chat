@@ -264,7 +264,6 @@ Page({
             that.setData({
                 messages: messagesLocal
             })
-            that.scrollTop();
             that.scrollToBottom();//滚动底部
         })
     }
