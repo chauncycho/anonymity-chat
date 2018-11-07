@@ -18,7 +18,7 @@ var lives = [{
     }, {
         value: "晴空万里",
         name: "Chauncy",
-        profilePath: "/images/profiles/profile1.jpg",
+        profilePath: "/images/profiles/profile1.png",
         commentId: 1,
         liveId: 0
     }]

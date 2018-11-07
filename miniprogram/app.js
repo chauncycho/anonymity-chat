@@ -106,7 +106,23 @@ App({
 
         wx.onSocketMessage(function(res){
             console.log("onSocketMessage");
-            console.log(res.data)
+            var userId = res.data.data.targetId;//自己id
+            var targetId = res.data.data.userId;//对方id
+            var time = res.data.data.time;
+            var type = res.data.data.type;
+            var value = res.data.data.value;
+            var messages = getApp().globalData.userdata.messages;
+            for(var i = 0 ; i < messages.length ; i ++){
+                if(messages[i].targetId = targetId){
+                    messages.messages.push({
+                        userId:userId,
+                        targetId:targetId,
+                        type:type,
+                        value:value,
+                        time:time
+                    })
+                }
+            }
         })
 
         wx.onSocketError(function(err){

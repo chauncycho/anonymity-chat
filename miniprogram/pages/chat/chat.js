@@ -24,6 +24,7 @@ Page({
         that.initUserTest();
         // console.log(getApp().globalData)
         console.log(that.data)
+        that.websocket();
     },
 
     /**
@@ -37,7 +38,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+    
     },
 
     /**
@@ -222,6 +223,28 @@ Page({
         }
         that.setData({
             user: user,
+        })
+    },
+    websocket:function(){
+        wx.onSocketMessage(function(res){
+            console.log("onSocketMessage");
+            var userId = res.data.data.targetId;//自己id
+            var targetId = res.data.data.userId;//对方id
+            var time = res.data.data.time;
+            var type = res.data.data.type;
+            var value = res.data.data.value;
+            var messages = getApp().globalData.userdata.messages;//更新global
+            for (var i = 0; i < messages.length; i++) {
+                if (messages[i].targetId = targetId) {
+                    messages.messages.push({
+                        userId: userId,
+                        targetId: targetId,
+                        type: type,
+                        value: value,
+                        time: time
+                    })
+                }
+            }
         })
     }
 })
