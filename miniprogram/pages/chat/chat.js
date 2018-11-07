@@ -141,8 +141,6 @@ Page({
             }
         }
         console.log(getApp().globalData.userdata)
-        // 滚动消息到底部
-        that.scrollToBottom();
 
         // 清空消息
         input = ""
@@ -159,11 +157,13 @@ Page({
             fail: function(res) {},
             complete: function(res) {},
         })
+        // 滚动消息到底部
+        that.scrollToBottom();
     },
     scrollToBottom: function() {
         wx: wx.createSelectorQuery().select("#content").boundingClientRect(function(rect) {
-            wx: wx.pageScrollTo({
-                scrollTop: rect.bottom,
+            wx.pageScrollTo({
+                scrollTop: rect.height,
                 duration: 0,
             })
         }).exec();
@@ -204,13 +204,14 @@ Page({
                 break;
             }
         }
-        for (var i = 0; i < preMessage.messages.length; i++) {
-            preMessage.messages[i].currentId = currentId;
-        }
+        // for (var i = 0; i < preMessage.messages.length; i++) {
+        //     preMessage.messages[i].currentId = currentId;
+        // }
         that.setData({
             messages: preMessage
         })
         console.log(that.data.messages);
+        that.scrollToBottom();//滚动底部
     },
     initUserTest: function() {
         var userdata = getApp().globalData.userdata;
@@ -228,23 +229,43 @@ Page({
     websocket:function(){
         wx.onSocketMessage(function(res){
             console.log("onSocketMessage");
-            var userId = res.data.data.targetId;//自己id
-            var targetId = res.data.data.userId;//对方id
-            var time = res.data.data.time;
-            var type = res.data.data.type;
-            var value = res.data.data.value;
+            console.log(res)
+            var data = JSON.parse(res.data);//转换
+            var targetId = data.targetId;//自己id
+            var userId = data.userId;//对方id
+            var time = data.time;
+            var type = data.type;
+            var value = data.value;
+
+            console.log("消息:"+userId+"->"+targetId+":"+value)
+
             var messages = getApp().globalData.userdata.messages;//更新global
             for (var i = 0; i < messages.length; i++) {
                 if (messages[i].targetId = targetId) {
-                    messages.messages.push({
-                        userId: userId,
-                        targetId: targetId,
+                    messages[i].messages.push({
+                        user_id: userId,
+                        target_id: targetId,
                         type: type,
                         value: value,
                         time: time
                     })
                 }
             }
+
+            // 更新页面
+            var messagesLocal = that.data.messages;
+            messagesLocal.messages.push({
+                user_id: userId,
+                target_id: targetId,
+                type: type,
+                value: value,
+                time: time
+            })
+            that.setData({
+                messages: messagesLocal
+            })
+            that.scrollTop();
+            that.scrollToBottom();//滚动底部
         })
     }
 })
