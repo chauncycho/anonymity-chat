@@ -18,7 +18,7 @@
 
 <!-- 好友列表 -->
 <template name='friend'>
-    <view class='person' bindtap='onFriendTap'>
+    <view class='person' data-id='{{item.id}}' bindtap='onFriendTap'>
         <image src='{{item.profile}}' mode='widthFix'></image>
         <view class='info'>
             <view class='name'>{{item.name}}</view>
@@ -28,7 +28,7 @@
 </template>
 
 <template name='anonymity-friends'>
-    <view class='person' bindtap='onAnonymityTap'>
+    <view class='person' data-id='{{item.id}}' bindtap='onAnonymityTap'>
         <image src='{{item.profile}}' mode='widthFix'></image>
         <view class='info'>
             <view class='name'>{{item.name}}</view>

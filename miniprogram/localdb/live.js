@@ -3,7 +3,7 @@ var lives = [{
     likeIconPath: "/images/icons/dislike_icon.png",
     commentIconPath: "/images/icons/comment_icon.png",
     name: "Chauncy",
-    profilePath: "/images/profiles/profile1.jpg",
+    profilePath: "/images/profiles/profile1.png",
     liveId: 0,
     style: {
         display: "block",

@@ -151,17 +151,19 @@ Page({
             myChattingRoom: room
         })
     },
-    onFriendTap: function() {
+    onFriendTap: function(e) {
+        var id = e.currentTarget.dataset.id;
         wx.navigateTo({
-            url: '/pages/card/friend/friend_card',
+            url: '/pages/card/friend/friend_card?id='+id,
             success: function(res) {},
             fail: function(res) {},
             complete: function(res) {},
         })
     },
-    onAnonymityTap: function () {
+    onAnonymityTap: function (e) {
+        var id = e.currentTarget.dataset.id;
         wx.navigateTo({
-            url: '/pages/card/anonymity/anonymity_card',
+            url: '/pages/card/anonymity/anonymity_card?id=' + id,
             success: function (res) { },
             fail: function (res) { },
             complete: function (res) { },

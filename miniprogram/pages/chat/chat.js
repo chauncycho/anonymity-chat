@@ -168,6 +168,62 @@ Page({
         })
     },
     onSendTest:function(e){
-        console.log(e)
+        if (input == "") {
+            wx.showToast({
+                title: '消息不能为空喔！',
+                icon: 'none'
+            })
+            return;
+        }
+
+        // 清空消息框
+        that.setData({
+            input: ""
+        })
+
+        // 获得消息内容 
+        var messages = that.data.messages;
+
+        // 更新消息数据
+        messages.message.push({
+            id: "000000005",
+            content: input,
+            currentId: currentId
+        })
+
+        // 同步到data
+        that.setData({
+            messages: messages
+        });
+
+        // 滚动消息到底部
+        that.scrollToBottom();
+
+        // 清空消息
+        input = ""
+
+        // 发送到服务器
+    },
+    initMessageTest:function(){
+        var messagedb = {
+            targetId: "000000006",
+            lastTime: "22:00",
+            message: [{
+                id: "000000005",
+                content: "出不出去吃饭"
+            }, {
+                id: "000000006",
+                content: "不去"
+            }, {
+                id: "000000005",
+                content: "为什么"
+            }, {
+                id: "000000006",
+                content: "冷"
+            }]
+        }
+        that.setData({
+            messages:messagedb
+        })
     }
 })
