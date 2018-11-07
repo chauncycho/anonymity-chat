@@ -118,13 +118,14 @@ Page({
         var messages = that.data.messages;
         // var userdataGlobal = getApp().globalData.userdata
         // 更新消息数据
-        messages.messages.push({
+        var newMessage = {
             user_id: currentId,
             target_id: targetId,
-            type:"text",
-            value:input,
-            time:new Date()
-        })
+            type: "text",
+            value: input,
+            time: new Date()
+        }
+        messages.messages.push(newMessage)
 
         // 同步到data
         that.setData({
@@ -135,13 +136,7 @@ Page({
         console.log(userdata);
         for(var i = 0 ; i < userdata.messages.length; i ++){
             if (userdata.messages[i].targetId == targetId){
-                userdata.messages[i].messages.push({
-                    user_id: currentId,
-                    target_id: targetId,
-                    type: "text",
-                    value: input,
-                    time: new Date()
-                })
+                userdata.messages[i].messages.push(newMessage)
             }
         }
         console.log(getApp().globalData.userdata)
@@ -152,15 +147,12 @@ Page({
         input = ""
 
         // 发送到服务器
-        wx:wx.sendSocketMessage({
-            data: {
-                user_id: currentId,
-                target_id: targetId,
-                type: "text",
-                value: input,
-                time: new Date()
-            },
+        console.log(newMessage)
+       
+        wx.sendSocketMessage({
+            data: JSON.stringify(newMessage),
             success: function(res) {
+                console.log(res);
                 console.log("消息发送成功")
             },
             fail: function(res) {},

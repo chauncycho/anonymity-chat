@@ -95,9 +95,9 @@ App({
         wx.onSocketOpen(function(res){
             console.log("onSocketOpen");
 
-            wx.sendSocketMessage({
-                data: "啦啦啦",
-            })
+            // wx.sendSocketMessage({
+            //     data: "啦啦啦",
+            // })
         });
 
         wx.onSocketClose(function(res){
