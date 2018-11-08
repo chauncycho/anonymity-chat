@@ -2,11 +2,20 @@
 var that;
 var userdata;
 var server = require('./localdb/server.js').server;
+var isConnected = null;
 App({
     onLaunch: function() {
         that = this;
         that.login();//登录
+        that.listenConnectState();//轮询监听连接状态
         // that.userInit();//初始化user
+    },
+    onShow: function(){
+        if(isConnected == null){
+            isConnected = false;
+        }else if(!isConnected){
+            that.connectWebSocket()
+        }
     },
     sendRequest: function(code) {
         //   发送服务器请求
@@ -23,7 +32,7 @@ App({
             success: function(res) {
                 //   成功
                 console.log(res);
-                var userdata = res.data;
+                userdata = res.data;
                 console.log("detail测试:"+userdata.detail)
                 that.save("userdata", userdata)
                 that.globalData = {
@@ -32,7 +41,7 @@ App({
                 console.log(that.globalData);
 
                 // websocket连接
-                that.connectWebSocket(userdata.id);
+                that.connectWebSocket();
             },
             fail: function(res) {},
             complete: function(res) {},
@@ -49,13 +58,13 @@ App({
     },
     login: function() {
         var that = this;
+        
         // 测试
 
         wx:wx.login({
             success: function(res) {
                 console.log("code:"+res.code);
                 that.sendRequest(res.code);
-                // that.connectWebSocket();
             },
             fail: function(res) {},
             complete: function(res) {},
@@ -77,7 +86,8 @@ App({
             userdata:userdata
         }
     },
-    connectWebSocket:function(userid){
+    connectWebSocket:function(){
+        var userid = userdata.id
         wx.connectSocket({
             url: "ws://"+server.name+"websocket/"+userid,
             header: {
@@ -93,6 +103,8 @@ App({
         })
 
         wx.onSocketOpen(function(res){
+            // console.log("socketState="+getApp().globalData.isConnected)
+            isConnected = true;
             console.log("onSocketOpen");
 
             // wx.sendSocketMessage({
@@ -101,6 +113,7 @@ App({
         });
 
         wx.onSocketClose(function(res){
+            isConnected = false;
             console.log("onSocketClose");
         })
 
@@ -130,4 +143,12 @@ App({
             console.error(err)
         })
     },
+    listenConnectState:function(){
+        setInterval(function(){
+            console.log("检测连接状态")
+            if(!isConnected){
+                that.connectWebSocket();
+            }
+        },10*1000)
+    }
 })
